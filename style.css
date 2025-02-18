@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+.header {
+    grid-row: 1 / 2;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.288);
+}
+
+.tileArea {
+    grid-row: 2 / 3;
+    background-color: rgba(128, 128, 128, 0.205);
+    padding: 10px 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 20px;
+    grid-auto-rows: 300px;
+}
+
+.gameTile {
+    background-color: rgba(122, 22, 22, 0.719);
+}
