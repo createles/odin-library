@@ -27,6 +27,16 @@ body {
     grid-auto-rows: 300px;
 }
 
-.gameTile {
+.characterTile {
     background-color: rgba(122, 22, 22, 0.719);
+}
+
+#addGame {
+    background-color: beige;
+}
+
+
+::backdrop {
+    background: red;
+    opacity: 0.75;
 }
