@@ -23,7 +23,11 @@ function displayCharacters(myLibrary) {
     for (let i = 0; i < myLibrary.length; i++) {
         let characterTile = document.createElement("div");
         characterTile.className = "characterTile";
+
+        let characterName = document.createElement("div");
         characterTile.textContent = myLibrary[i].name;
+        characterTile.appendChild(characterName);
+        
         tileArea.appendChild(characterTile);
     }
 }
@@ -49,6 +53,7 @@ confirmButton.addEventListener("click", (event) => {
     const bodyType = document.getElementById("bodyType").value;
 
     addCharacterToLibrary(name, race, classType, identity, bodyType);
+    displayCharacters(myLibrary);
     addCharacter.close();
     charForm.reset();
 });
