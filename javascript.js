@@ -1,32 +1,58 @@
 const myLibrary = [];
 
-function Game(title, studio, genre, platform) {
-    this.title = title;
-    this.studio = studio;
-    this.genre = genre;
-    this.platform = platform;
+function Character(name, race, classType, identity, bodyType) {
+    this.name = name;
+    this.race = race;
+    this.class = classType;
+    this.identity = identity;
+    this.bodyType = bodyType;
 }
 
-function addGameToLibrary(title, studio, genre, platform) {
-    const newGame = new Game(title, studio, genre, platform);
-    myLibrary.push(newGame);
+function addCharacterToLibrary(name, race, classType, identity, bodyType) {
+    const newCharacter = new Character(name, race, classType, identity, bodyType);
+    myLibrary.push(newCharacter);
 
 }
 
-addGameToLibrary("Apex Legends", "Respawn Entertainment", "Battle Royale", "Multiplatform")
-addGameToLibrary("Contra", "Konami", "Run and Gun", "NES");
-addGameToLibrary("Resident Evil 4 Remake", "Capcom", "Survival Horror", "Multiplatform");
-addGameToLibrary("Pokemon Siler", "GameFreak", "Japanese RPG", "Gameboy");
+addCharacterToLibrary("Iggdroth", "Undead Dwarf", "Battle Mage", "Male", "Muscular")
 
 
 const tileArea = document.querySelector(".tileArea");
 
-function displayGames(myLibrary) {
+function displayCharacters(myLibrary) {
     for (let i = 0; i < myLibrary.length; i++) {
-        let gameTile = document.createElement("div");
-        gameTile.className = "gameTile";
-        gameTile.textContent = myLibrary[i].title;
-        tileArea.appendChild(gameTile);
+        let characterTile = document.createElement("div");
+        characterTile.className = "characterTile";
+        characterTile.textContent = myLibrary[i].name;
+        tileArea.appendChild(characterTile);
     }
 }
 
+
+const addCharacter = document.querySelector("#addCharacter");
+const charForm = document.querySelector("#charForm")
+const cancelButton = document.querySelector("#cancel");
+const addButton = document.querySelector("#add");
+const confirmButton = document.querySelector("#confirm");
+
+addButton.addEventListener("click", () => {
+    addCharacter.showModal();
+});
+
+confirmButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const race = document.getElementById("race").value;
+    const classType = document.getElementById("classType").value;
+    const identity = document.getElementById("identity").value;
+    const bodyType = document.getElementById("bodyType").value;
+
+    addCharacterToLibrary(name, race, classType, identity, bodyType);
+    addCharacter.close();
+    charForm.reset();
+});
+
+cancelButton.addEventListener("click", () => {
+    charForm.reset();
+});
