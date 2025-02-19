@@ -8,10 +8,63 @@
 </head>
 <body>
     <div class="header">
-        <div id="textBanner">Games</div>
+        <div id="textBanner">Characters</div>
     </div>
     <div class="tileArea">
-        
+        <button id="add">Create a Character</button>
+        <dialog id="addCharacter">
+            <form id="charForm">
+                <input type="text" name="name" id="name" placeholder="Name">
+                <select name="race" id="race">
+                    <option value="" disabled selected>Race</option>
+                    <option value="Human">Human</option>
+                    <option value="Dwarf">Dwarf</option>
+                    <option value="Elf">Elf</option>
+                    <option value="Half-Elf">Half-Elf</option>
+                    <option value="Gnome">Gnome</option>
+                    <option value="Orc">Orc</option>
+                    <option value="Half-Orc">Half-Orc</option>
+                    <option value="Dragonborn">Dragonborn</option>
+                    <option value="Halfling">Halfling</option>
+                    <option value="Tiefling">Tiefling</option>
+                    <option value="Aasimar">Aasimar</option>
+                    <option value="Goliath">Goliath</option>
+                </select>
+                <select name="classType" id="classType">
+                    <option value="" disabled selected>Class</option>
+                    <option value="Barbarian">Barbarian</option>
+                    <option value="Bard">Bard</option>
+                    <option value="Cleric">Cleric</option>
+                    <option value="Druid">Druid</option>
+                    <option value="Fighter">Fighter</option>
+                    <option value="Monk">Monk</option>
+                    <option value="Paladin">Paladin</option>
+                    <option value="Ranger">Ranger</option>
+                    <option value="Rogue">Rogue</option>
+                    <option value="Sorcerer">Sorcerer</option>
+                    <option value="Warlock">Warlock</option>
+                    <option value="Wizard">Wizard</option>
+                    <option value="Artificer">Artificer</option>
+                </select>
+                <select name="identity" id="identity">
+                    <option value="" disabled selected>Identity</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Other">Other</option>
+                </select>
+                <select name="bodyType" id="bodyType">
+                    <option value="" disabled selected>Body Type</option>
+                    <option value="Slim">Slim</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Muscular">Muscular</option>
+                    <option value="Large">Large</option>
+                </select>
+                <div>
+                    <button id="cancel" formmethod="dialog">Cancel</button>
+                    <button id="confirm" value="default">Confirm</button>
+                </div>
+            </form>
+        </dialog>
     </div>
     <script src="javascript.js"></script>
 </body>
