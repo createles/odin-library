@@ -29,6 +29,9 @@ body {
 
 .characterTile {
     background-color: rgba(122, 22, 22, 0.719);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #addCharacter {
