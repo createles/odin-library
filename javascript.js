@@ -1,38 +1,69 @@
+// Initialize storage array for characters
 const myLibrary = [];
 
+// Character object constructor function
 function Character(name, race, classType, identity, bodyType) {
     this.name = name;
     this.race = race;
-    this.class = classType;
+    this.classType = classType;
     this.identity = identity;
     this.bodyType = bodyType;
 }
 
+// Add character to storage array
 function addCharacterToLibrary(name, race, classType, identity, bodyType) {
     const newCharacter = new Character(name, race, classType, identity, bodyType);
     myLibrary.push(newCharacter);
-
 }
 
-addCharacterToLibrary("Iggdroth", "Undead Dwarf", "Battle Mage", "Male", "Muscular")
+// Dynamically create character card element with character details
+function createCharCard(name, race, classType, identity, bodyType) {
+    let charTile = document.createElement("div");
+    charTile.className = "characterTile";
+
+    let charName = document.createElement("div");
+    charName.className = "charName";
+
+    let charRace = document.createElement("div");
+    charRace.className = "charRace";
+
+    let charClass = document.createElement("div");
+    charClass.className = "classType";
+
+    let charIdentity = document.createElement("div");
+    charIdentity.className = "identity";
+
+    let charBodyType = document.createElement("div");
+    charBodyType.className = "bodyType";
+
+    let statsButton = document.createElement("button");
+    statsButton.className = "statsButton";
+    // *ADD STAT BUTTON BEHAVIOR*
+    statsButton.textContent = "Character stats"
+
+    let deleteButton = document.createElement("button");
+    deleteButton.className = "deleteButton";
+    deleteButton.textContent = "Delete character";
+
+    deleteButton.addEventListener("click", () => {
+        charTile.remove();
+    })
+
+    charName.textContent = name;
+    charRace.textContent = race;
+    charClass.textContent = classType;
+    charIdentity.textContent = identity;
+    charBodyType.textContent = bodyType;
+
+    // Append used to add multiple elements to parent element
+    charTile.append(charName, charRace, charClass, charIdentity, charBodyType, statsButton, deleteButton);
 
 
+    tileArea.appendChild(charTile);
+}
+
+// Declare element selectors
 const tileArea = document.querySelector(".tileArea");
-
-function displayCharacters(myLibrary) {
-    for (let i = 0; i < myLibrary.length; i++) {
-        let characterTile = document.createElement("div");
-        characterTile.className = "characterTile";
-
-        let characterName = document.createElement("div");
-        characterTile.textContent = myLibrary[i].name;
-        characterTile.appendChild(characterName);
-        
-        tileArea.appendChild(characterTile);
-    }
-}
-
-
 const addCharacter = document.querySelector("#addCharacter");
 const charForm = document.querySelector("#charForm")
 const cancelButton = document.querySelector("#cancel");
@@ -53,8 +84,9 @@ confirmButton.addEventListener("click", (event) => {
     const bodyType = document.getElementById("bodyType").value;
 
     addCharacterToLibrary(name, race, classType, identity, bodyType);
-    displayCharacters(myLibrary);
+    createCharCard(name, race, classType, identity, bodyType);
     addCharacter.close();
+    // Reset form inputs
     charForm.reset();
 });
 
