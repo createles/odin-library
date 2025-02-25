@@ -58,8 +58,8 @@ function createCharCard(name, race, classType, identity, bodyType) {
     // Append used to add multiple elements to parent element
     charTile.append(charName, charRace, charClass, charIdentity, charBodyType, statsButton, deleteButton);
 
-
-    tileArea.appendChild(charTile);
+    // Adds the character card before the character creator button
+    addButton.before(charTile);
 }
 
 // Declare element selectors
