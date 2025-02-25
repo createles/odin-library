@@ -57,10 +57,21 @@ body {
 }
 
 .characterTile {
-    background-color: rgba(122, 22, 22, 0.719);
+    /* background-color: rgba(122, 22, 22, 0.719); */
+    background-image: url(background/Scroll-Wide-1.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 10px;
+    place-content: center;
+    font-family: "IM Fell English";
+}
+
+.characterTile:hover {
+    filter: drop-shadow(0px 5px 5px rgb(228, 56, 13));
 }
 
 #addCharacter {
@@ -71,4 +82,8 @@ body {
 ::backdrop {
     background: red;
     opacity: 0.75;
+}
+
+.charName {
+    font-family: "Eagle Lake";
 }
