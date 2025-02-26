@@ -85,13 +85,41 @@ confirmButton.addEventListener("click", (event) => {
     const identity = document.getElementById("identity").value;
     const bodyType = document.getElementById("bodyType").value;
 
+    if (name === "" || race === "" || classType === "" || identity === "" || bodyType === "") {
+        alert("Please complete your character's details.");
+        return;
+    } else {
     addCharacterToLibrary(name, race, classType, identity, bodyType);
     createCharCard(name, race, classType, identity, bodyType);
     addCharacter.close();
     // Reset form inputs
     charForm.reset();
+    }
 });
 
 cancelButton.addEventListener("click", () => {
     charForm.reset();
 });
+
+// Disabling Create A Character button after all 3 character slots are used
+const maxItems = 3;
+
+// Checker function for number of characterTiles in tileArea
+function checkTileArea() {
+    const items = tileArea.querySelectorAll(".characterTile");
+    if (items.length >= maxItems) {
+        // Visibility property allows hidden and visible values meaning they dont leave the document but arent visible to user
+        addButton.style.visibility = "hidden";
+    } else {
+        addButton.style.visibility = "visible";
+    }
+}
+
+// Use MutationObserver to watch for changes
+const observer = new MutationObserver(checkTileArea);
+
+// Run observer and observe changes in child nodes
+observer.observe(tileArea, {
+    childList: true,
+});
+
