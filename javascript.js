@@ -21,6 +21,9 @@ function createCharCard(name, race, classType, identity, bodyType) {
     let charTile = document.createElement("div");
     charTile.className = "characterTile";
 
+    let charImg = document.createElement("img");
+    charImg.className = "charImg"
+
     let charName = document.createElement("div");
     charName.className = "charName";
 
@@ -43,7 +46,7 @@ function createCharCard(name, race, classType, identity, bodyType) {
 
     let deleteButton = document.createElement("button");
     deleteButton.className = "deleteButton";
-    deleteButton.textContent = "Delete character";
+    deleteButton.textContent = "X";
 
     deleteButton.addEventListener("click", () => {
         charTile.remove();
@@ -53,10 +56,11 @@ function createCharCard(name, race, classType, identity, bodyType) {
     charRace.textContent = race;
     charClass.textContent = classType;
     charIdentity.textContent = identity;
-    charBodyType.textContent = bodyType;
+    charBodyType.textContent = bodyType+ "-build";
+    charImg.src = `images/${race}_${identity}.svg`;
 
     // Append used to add multiple elements to parent element
-    charTile.append(charName, charRace, charClass, charIdentity, charBodyType, statsButton, deleteButton);
+    charTile.append(charImg, charName, charRace, charClass, charIdentity, charBodyType, statsButton, deleteButton);
 
     // Adds the character card before the character creator button
     addButton.before(charTile);
