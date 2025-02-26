@@ -6,6 +6,7 @@
 
 html {
     font-size: 16px;
+    background-color: black;
 }
 
 body {
@@ -13,6 +14,12 @@ body {
     height: 100vh;
     display: grid;
     grid-template-rows: 1fr 5fr;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.fade-in {
+    opacity: 1;
 }
 
 #bgEmber {

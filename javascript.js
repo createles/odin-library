@@ -1,3 +1,10 @@
+// Add fade-in from black
+document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        document.querySelector("body").classList.add("fade-in");
+    }, 100);
+});
+
 // Initialize storage array for characters
 const myLibrary = [];
 
