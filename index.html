@@ -18,10 +18,10 @@
         Your browser does not support the video tag.
     </video>
     <div class="header">
-        <div id="textBanner">Characters</div>
+        <div id="textBanner">Criminals of <br><span>The Sword Coast</span></div>
     </div>
     <div class="tileArea">
-        <button id="add">Create a Character</button>
+        <button id="add"><span id="createChar">Create a Character</span></button>
         <dialog id="addCharacter">
             <form id="charForm">
                 <input type="text" name="name" id="name" placeholder="Name" autofocus>
@@ -60,7 +60,6 @@
                     <option value="" disabled selected>Identity</option>
                     <option value="Female">Female</option>
                     <option value="Male">Male</option>
-                    <option value="Other">Other</option>
                 </select>
                 <select name="bodyType" id="bodyType">
                     <option value="" disabled selected>Body Type</option>
@@ -69,7 +68,7 @@
                     <option value="Muscular">Muscular</option>
                     <option value="Large">Large</option>
                 </select>
-                <div>
+                <div class="buttons">
                     <button id="cancel" formmethod="dialog">Cancel</button>
                     <button id="confirm" value="default">Confirm</button>
                 </div>

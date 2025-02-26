@@ -32,17 +32,21 @@ body {
 }
 
 .header {
-    background-color: rgba(153, 117, 39, 0.651);
+    margin-right: auto;
+    margin-left: auto;
     grid-row: 1 / 2;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.288);
-    padding-left: 8%;
-    padding-bottom: 2%;
+    text-align: center;
+    font-family:'Eagle Lake';
+    color: white;
+    text-shadow: 0px 5px 5px rgb(228, 56, 13);
+    font-style: italic;
     display: grid;
     align-items: end;
 }
 
 #textBanner {
-    font-size: clamp(2rem, 3vw, 5rem);
+    font-size: clamp(1rem, 1.5vw, 3rem);
     font-weight: 700;
 }
 
@@ -51,15 +55,32 @@ body {
     padding: 10px 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     column-gap: 50px;
     row-gap: 20px;
     grid-auto-rows: 400px;
 }
 
 #add {
+    grid-area: 2 / 2 / 3 / 3;
     background: none;
     border: none;
-    color: white;
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    font-family: "Eagle Lake";
+}
+
+#createChar {
+    cursor: pointer;
+    padding: 10px 30px 10px 30px;
+    background: url(background/Scroll-Wide-1.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover
+}
+
+#createChar:hover {
+    filter: drop-shadow(0px 5px 5px rgb(228, 56, 13));
 }
 
 .characterTile {
@@ -82,12 +103,38 @@ body {
 }
 
 #addCharacter {
-    background-color: beige;
+    background-color: rgba(0, 0, 0, 0.397);
+    place-self: center;
+    padding: 50px;
+    border: none;
+    border-radius: 20px;
 }
 
+input, select {
+    font-size: 2rem;
+}
+
+.buttons {
+    place-self: center;
+    padding-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.buttons button {
+    border: none;
+    background: none;
+    color: white;
+    font-family: "Eagle Lake";
+    font-size: 1.3rem;
+}
+
+.buttons button:hover {
+    text-shadow: 0px 5px 5px red;
+}
 
 ::backdrop {
-    background: red;
+    background: rgba(0, 0, 0, 0.432);
     opacity: 0.75;
 }
 
